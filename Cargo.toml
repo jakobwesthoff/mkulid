@@ -8,7 +8,7 @@ authors = ["Jakob Westhoff <jakob@westhoffswelt.de>"]
 homepage = "https://westhoffswelt.de"
 
 [dependencies]
-anyhow = "1.0.101"
-chrono = "0.4.43"
-clap = { version = "4.5.58", features = ["derive"] }
+anyhow = "1.0.104"
+chrono = "0.4.45"
+clap = { version = "4.6.5", features = ["derive"] }
 ulid = "1.2.1"
