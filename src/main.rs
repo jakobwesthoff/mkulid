@@ -4,7 +4,7 @@
 
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
-use anyhow::{Context, Result, bail};
+use anyhow::{Context, Result, anyhow, bail};
 use chrono::{DateTime, Utc};
 use clap::Parser;
 use ulid::{Generator, Ulid};
@@ -97,13 +97,16 @@ fn generate_ulids(cli: &Cli) -> Result<()> {
     let mut generator = Generator::new();
 
     for _ in 0..cli.count {
+        // The generator's overflow error borrows the generator itself, so it
+        // cannot travel out of this scope. Rendering it into an owned message
+        // ends the borrow before the `?`.
         let ulid = match pinned_time {
             Some(st) => generator
                 .generate_from_datetime(st)
-                .context("generate ULID from pinned timestamp (random bits overflow)"),
+                .map_err(|e| anyhow!("generate ULID from pinned timestamp: {e}")),
             None => generator
                 .generate()
-                .context("generate ULID (random bits overflow)"),
+                .map_err(|e| anyhow!("generate ULID: {e}")),
         }?;
 
         let formatted = if cli.lowercase {

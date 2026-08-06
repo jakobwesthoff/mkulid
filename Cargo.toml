@@ -11,4 +11,4 @@ homepage = "https://westhoffswelt.de"
 anyhow = "1.0.104"
 chrono = "0.4.45"
 clap = { version = "4.6.5", features = ["derive"] }
-ulid = "1.2.1"
+ulid = "3.0.0"
