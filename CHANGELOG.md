@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.0.1 - 2026-08-06
+
+### Changed
+
+- Updated dependencies, including `ulid` to 3.0
+- Reworded the error message shown when the monotonic generator's random
+  bits overflow
+
 ## 1.0.0 - 2026-02-13
 
 ### Added
