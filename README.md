@@ -21,6 +21,15 @@ monotonicity.
 cargo install mkulid
 ```
 
+### With Homebrew
+
+```sh
+brew install jakobwesthoff/tap/mkulid
+```
+
+The formula lives in my
+[Homebrew tap](https://github.com/jakobwesthoff/homebrew-tap).
+
 ### From GitHub releases
 
 Pre-built binaries are available on the
